@@ -11,17 +11,17 @@ namespace Assignment1_S19
 
             int n1 = 5;
             double r1 = getSeriesResult(n1);
-            Console.WriteLine("The sum of the series is: " + r1);
+            Console.WriteLine("\n2.The sum of the series is: " + r1);
 
 
             long n2 = 15;
             long r2 = decimalToBinary(n2);
-            Console.WriteLine("Binary conversion of the decimal number " + n2 + " is: " + r2);
+            Console.WriteLine("\n3.Binary conversion of the decimal number " + n2 + " is: " + r2);
 
 
             long n3 = 1111;
             long r3 = binaryToDecimal(n3);
-            Console.WriteLine("Decimal conversion of the binary number " + n3 + " is: " + r3);
+            Console.WriteLine("\n4.Decimal conversion of the binary number " + n3 + " is: " + r3);
 
 
             int n4 = 5;
@@ -29,8 +29,13 @@ namespace Assignment1_S19
 
             int[] arr = new int[] { 1, 2, 3, 2, 2, 1, 3, 2 };
             computeFrequency(arr);
+            Console.ReadKey();
 
             // write your self-reflection here as a comment
+
+            /*This assignment is good opportunity to learn the basics of the programming. Initially, while I started the assignment, faced so many errors. But, learned the running the program without any errors. As a very beginner of programming, I feel this kind of assignment is the good way to learn the basics.
+            The major challenging aspect, for me, in this assignment was calling the functions which I learned from the Prof.Clinton’s video lessons.*/
+
 
         }
 
@@ -39,7 +44,7 @@ namespace Assignment1_S19
 
             try
             {
-                Console.WriteLine("Prime numbers between {0} and {1} are:", x, y);
+                Console.WriteLine("1.Prime numbers between {0} and {1} are:\n", x, y);
                 bool isprime = true;
 
 
@@ -70,7 +75,7 @@ namespace Assignment1_S19
                         Console.WriteLine(i);
                     }
                 }
-                Console.ReadKey();
+                
 
 
                 // Write your code here
@@ -146,7 +151,7 @@ namespace Assignment1_S19
 
                 }
                 
-                Console.ReadKey();
+                
 
                 // Write your code here
 
@@ -183,7 +188,7 @@ namespace Assignment1_S19
             {
                 Console.WriteLine("Exception occured while computing decimalToBinary()");
             }
-            Console.ReadKey();
+            
             return binary;
         }
 
@@ -218,6 +223,7 @@ namespace Assignment1_S19
 
         public static void printTriangle(int n)
         {
+            Console.WriteLine("\n5. Printing traingle:\n");
             try
             {
                 int line;
@@ -234,7 +240,7 @@ namespace Assignment1_S19
                         x++;
                     }
                     Console.WriteLine();
-                    Console.ReadKey();
+                   
                 }
 
                 // Write your code here
@@ -248,16 +254,48 @@ namespace Assignment1_S19
         public static void computeFrequency(int[] a)
         {
 
-            int[] Frq = new int[a.Length];
-            foreach(int k in Frq)
-            {
-                Frq[k] = -1;
-            }
-
+            
+            Console.WriteLine("\n6. Frequency of Numbers in the given array:" );
             try
             {
-                
-                // Write your code here
+                int[] frq = new int[a.Length]; // new array to count each element in the array.
+               
+                //foreach (int k in a)
+                for ( int k =0; k <a.Length; k++)
+                {
+                    frq[k] = -1; //assigning -1 to every element in freq array.
+
+                }
+                for (int i = 0; i < a.Length; i++)
+                {
+                    int count = 1;
+                    for (int j = i + 1; j < a.Length; j++)
+                    {
+
+                        if (a[i] == a[j]) //comparing two numbers
+                        {
+                            count++; // if two numbers are same, count increases.
+                            frq[j] = 0; //and freq value changed to 0 from -1, so that the same will not count in the next loop.
+
+                        }
+
+                    }
+                    if (frq[i] != 0)
+                    {
+                        frq[i] = count; // counting number of times each element repeat.
+                    }
+                }
+
+
+                for (int m = 0; m <a.Length; m++)
+                {
+                    if (frq[m] != 0) //to print the counted freq of elements.
+                    {
+                        Console.WriteLine( a[m] + "  ->  " + frq[m] + "  times");
+                    }
+
+                    // Write your code here
+                }
             }
             catch
             {
